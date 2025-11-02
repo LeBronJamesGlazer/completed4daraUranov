@@ -18,6 +18,8 @@ This report analyzes the performance of several graph algorithms on a variety of
 | large_3.json   | 29           | 52        | 0.06    | Sparse            |
 | dag.json       | 6            | 7         | 0.23    | DAG               |
 | dense.json     | 5            | 20        | 1.00    | Dense, Complete   |
+| dense_2.json   | 4            | 12        | 1.00    | Dense, Complete   |
+| dag_2.json     | 5            | 4         | 0.20    | DAG               |
 | multi_scc.json | 8            | 8         | 0.14    | Multiple SCCs     |
 
 *Density is calculated as m / (n * (n - 1)) for directed graphs.*
@@ -41,6 +43,8 @@ The following tables show the performance metrics for each algorithm across the 
 | large_3.json   | 0                   | 29         | 52        |
 | dag.json       | 0                   | 6          | 7         |
 | dense.json     | 0                   | 5          | 20        |
+| dense_2.json   | 0                   | 4          | 12        |
+| dag_2.json     | 0                   | 5          | 4         |
 | multi_scc.json | 0                   | 8          | 8         |
 
 ### Topological Sort using Kahn's Algorithm
@@ -58,6 +62,8 @@ The following tables show the performance metrics for each algorithm across the 
 | large_3.json   | 0                   | 14     | 14   |
 | dag.json       | 0                   | 6      | 6    |
 | dense.json     | 0                   | 1      | 1    |
+| dense_2.json   | 0                   | 1      | 1    |
+| dag_2.json     | 0                   | 5      | 5    |
 | multi_scc.json | 0                   | 4      | 4    |
 
 ### DAG Shortest/Longest Path (based on Topological Sort)
@@ -66,6 +72,8 @@ The following tables show the performance metrics for each algorithm across the 
 |----------------|-----------|---------------------|-------------|
 | dag.json       | Shortest  | 0                   | 5           |
 |                | Longest   | 0                   | 7           |
+| dag_2.json     | Shortest  | 0                   | 4           |
+|                | Longest   | 0                   | 4           |
 
 *Note: The DAG SP algorithm is only applicable to Directed Acyclic Graphs. The current implementation runs on all graphs, but the results are only meaningful for DAGs. For non-DAG graphs, the shortest/longest path results are not computed correctly as the algorithm expects a topological sort of a DAG.*
 
@@ -128,6 +136,8 @@ large_2.json,0,41,68
 large_3.json,0,29,52
 dag.json,0,6,7
 dense.json,0,5,20
+dense_2.json,0,4,12
+dag_2.json,0,5,4
 multi_scc.json,0,8,8
 ```
 
@@ -145,6 +155,8 @@ large_2.json,0,21,21
 large_3.json,0,14,14
 dag.json,0,6,6
 dense.json,0,1,1
+dense_2.json,0,1,1
+dag_2.json,0,5,5
 multi_scc.json,0,4,4
 ```
 
@@ -164,7 +176,9 @@ large_1   : ██████████████████████�
 large_2   : ███████████████████████████████████████ (41)
 large_3   : █████████████████████████████ (29)
 dag       : ██████ (6)
+dag_2     : █████ (5)
 dense     : █████ (5)
+dense_2   : ████ (4)
 multi_scc : ████████ (8)
 ```
 
@@ -180,6 +194,8 @@ large_1   : ███████████████████ (19)
 large_2   | █████████████████████ (21)
 large_3   | ██████████████ (14)
 dag       : ██████ (6)
+dag_2     : █████ (5)
 dense     : █ (1)
+dense_2   : █ (1)
 multi_scc : ████ (4)
 ```
