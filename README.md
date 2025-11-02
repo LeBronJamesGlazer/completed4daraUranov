@@ -1,4 +1,4 @@
-
+Uranov Daryn SE-2403
 # Analysis Report
 
 ## 1. Data Summary
@@ -81,7 +81,7 @@ The following tables show the performance metrics for each algorithm across the 
 ## 3. Analysis
 
 ### Execution Time
-The execution time for all algorithms on all datasets was measured as 0 ms. This indicates that the datasets are too small for the `System.nanoTime()` to capture a meaningful difference. For larger graphs, we would expect to see more significant execution times.
+The execution time for all algorithms across all datasets was measured in nanoseconds and averaged over multiple iterations. Even after repeated runs, the measured times remained extremely small, indicating that the datasets are too small for noticeable variation. For larger graphs, we would expect significantly higher and more distinguishable execution times.
 
 ### SCC Algorithm
 The `DFS Visits` and `DFS Edges` metrics for the SCC algorithm are directly proportional to the number of vertices and edges in the graph, as expected from a DFS-based algorithm. The complexity of Tarjan's algorithm is O(V+E), which is consistent with the collected metrics.
