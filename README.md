@@ -25,6 +25,47 @@ This report analyzes the performance of several graph algorithms on a variety of
 
 *Density is calculated as m / (n * (n - 1)) for directed graphs.*
 
+### How to Use
+How to Compile
+If using terminal:
+javac -d out -cp "libs/*" src/main/java/org/example/**/*.java
+if using Maven:
+mvn clean compile
+
+How to Run
+Option 1 — from terminal:
+java -cp out org.example.Main
+Option 2 — with Maven:
+mvn exec:java -Dexec.mainClass="org.example.Main"
+Option 3 — from IDE:
+Open Main.java → right-click → “Run Main”.
+
+When you run the program, you’ll see a menu:
+Choose a dataset to analyze:
+1. small
+2. medium
+3. large
+4. specific
+5. all
+>
+
+Type one of the options (for example, all) and press Enter.
+	•	all → analyzes all datasets in /data
+	•	specific → analyzes selected graphs (dag.json, dense.json, etc.)
+	•	small, medium, large → analyze size-based subsets
+
+The program then performs:
+	1.	SCC detection
+	2.	Condensation graph construction
+	3.	Topological sorting
+	4.	Shortest and longest path analysis
+
+Each step reports:
+	•	Number of operations (DFS visits, relaxations, pushes/pops)
+	•	Average execution time (in nanoseconds)
+	•	Identified SCCs and resulting topological order
+
+Results are printed to the terminal and stored in tables for analysis.
 ## 2. Results
 
 The following tables show the performance metrics for each algorithm across the different datasets. The execution time is reported in milliseconds (ms).
@@ -122,6 +163,7 @@ The structure of the graph has a significant impact:
 ## 5. Visualizations
 
 To help visualize the results, here is the data in CSV format, which can be used to generate plots in any spreadsheet or plotting software.
+Or you can see it in plots folder.
 
 ### SCC Metrics (CSV)
 ```csv
@@ -162,9 +204,6 @@ multi_scc.json,723,4,4
 ```
 
 ### Text-based Bar Charts
-
-Since the execution times are all 0, the bar charts below visualize the `DFS Visits` for SCC and `Pushes` for Topological Sort, as they are more interesting metrics.
-
 **SCC: DFS Visits**
 ```
 small_1   : █████████ (9)
