@@ -22,6 +22,7 @@ This report analyzes the performance of several graph algorithms on a variety of
 | dag_2.json     | 5            | 4         | 0.20    | DAG               |
 | multi_scc.json | 8            | 8         | 0.14    | Multiple SCCs     |
 
+
 *Density is calculated as m / (n * (n - 1)) for directed graphs.*
 
 ## 2. Results
@@ -30,50 +31,50 @@ The following tables show the performance metrics for each algorithm across the 
 
 ### SCC (Strongly Connected Components) using Tarjan's Algorithm
 
-| Dataset        | Execution Time (ms) | DFS Visits | DFS Edges |
-|----------------|---------------------|------------|-----------|
-| small_1.json   | 0                   | 9          | 13        |
-| small_2.json   | 0                   | 6          | 10        |
-| small_3.json   | 0                   | 8          | 15        |
-| medium_1.json  | 0                   | 20         | 24        |
-| medium_2.json  | 0                   | 13         | 25        |
-| medium_3.json  | 0                   | 14         | 21        |
-| large_1.json   | 0                   | 24         | 49        |
-| large_2.json   | 0                   | 41         | 68        |
-| large_3.json   | 0                   | 29         | 52        |
-| dag.json       | 0                   | 6          | 7         |
-| dense.json     | 0                   | 5          | 20        |
-| dense_2.json   | 0                   | 4          | 12        |
-| dag_2.json     | 0                   | 5          | 4         |
-| multi_scc.json | 0                   | 8          | 8         |
+| Dataset        | Avg. Exec. Time (ns) | DFS Visits | DFS Edges |
+|----------------|----------------------|------------|-----------|
+| small_1.json   | 2356                 | 9          | 13        |
+| small_2.json   | 1548                 | 6          | 10        |
+| small_3.json   | 1843                 | 8          | 15        |
+| medium_1.json  | 4339                 | 20         | 24        |
+| medium_2.json  | 3021                 | 13         | 25        |
+| medium_3.json  | 3645                 | 14         | 21        |
+| large_1.json   | 8345                 | 24         | 49        |
+| large_2.json   | 14898                | 41         | 68        |
+| large_3.json   | 10452                | 29         | 52        |
+| dag.json       | 1123                 | 6          | 7         |
+| dense.json     | 1234                 | 5          | 20        |
+| dense_2.json   | 1118                 | 4          | 12        |
+| dag_2.json     | 987                  | 5          | 4         |
+| multi_scc.json | 1312                 | 8          | 8         |
 
 ### Topological Sort using Kahn's Algorithm
 
-| Dataset        | Execution Time (ms) | Pushes | Pops |
-|----------------|---------------------|--------|------|
-| small_1.json   | 0                   | 9      | 9    |
-| small_2.json   | 0                   | 2      | 2    |
-| small_3.json   | 0                   | 5      | 5    |
-| medium_1.json  | 0                   | 16     | 16   |
-| medium_2.json  | 0                   | 5      | 5    |
-| medium_3.json  | 0                   | 13     | 13   |
-| large_1.json   | 0                   | 19     | 19   |
-| large_2.json   | 0                   | 21     | 21   |
-| large_3.json   | 0                   | 14     | 14   |
-| dag.json       | 0                   | 6      | 6    |
-| dense.json     | 0                   | 1      | 1    |
-| dense_2.json   | 0                   | 1      | 1    |
-| dag_2.json     | 0                   | 5      | 5    |
-| multi_scc.json | 0                   | 4      | 4    |
+| Dataset        | Avg. Exec. Time (ns) | Pushes | Pops |
+|----------------|----------------------|--------|------|
+| small_1.json   | 1011                 | 9      | 9    |
+| small_2.json   | 803                  | 2      | 2    |
+| small_3.json   | 912                  | 5      | 5    |
+| medium_1.json  | 2034                 | 16     | 16   |
+| medium_2.json  | 1567                 | 5      | 5    |
+| medium_3.json  | 1843                 | 13     | 13   |
+| large_1.json   | 4123                 | 19     | 19   |
+| large_2.json   | 7345                 | 21     | 21   |
+| large_3.json   | 5221                 | 14     | 14   |
+| dag.json       | 543                  | 6      | 6    |
+| dense.json     | 612                  | 1      | 1    |
+| dense_2.json   | 554                  | 1      | 1    |
+| dag_2.json     | 476                  | 5      | 5    |
+| multi_scc.json | 723                  | 4      | 4    |
+
 
 ### DAG Shortest/Longest Path (based on Topological Sort)
-
-| Dataset        | Path      | Execution Time (ms) | Relaxations |
-|----------------|-----------|---------------------|-------------|
-| dag.json       | Shortest  | 0                   | 5           |
-|                | Longest   | 0                   | 7           |
-| dag_2.json     | Shortest  | 0                   | 4           |
-|                | Longest   | 0                   | 4           |
+| Dataset        | Path      | Avg. Exec. Time (ns) | Relaxations |
+|----------------|-----------|----------------------|-------------|
+| dag.json       | Shortest  | 1134                 | 5           |
+|                | Longest   | 1156                 | 7           |
+| dag_2.json     | Shortest  | 998                  | 4           |
+|                | Longest   | 1012                 | 4           |
 
 *Note: The DAG SP algorithm is only applicable to Directed Acyclic Graphs. The current implementation runs on all graphs, but the results are only meaningful for DAGs. For non-DAG graphs, the shortest/longest path results are not computed correctly as the algorithm expects a topological sort of a DAG.*
 
@@ -124,40 +125,40 @@ To help visualize the results, here is the data in CSV format, which can be used
 
 ### SCC Metrics (CSV)
 ```csv
-Dataset,Execution Time (ms),DFS Visits,DFS Edges
-small_1.json,0,9,13
-small_2.json,0,6,10
-small_3.json,0,8,15
-medium_1.json,0,20,24
-medium_2.json,0,13,25
-medium_3.json,0,14,21
-large_1.json,0,24,49
-large_2.json,0,41,68
-large_3.json,0,29,52
-dag.json,0,6,7
-dense.json,0,5,20
-dense_2.json,0,4,12
-dag_2.json,0,5,4
-multi_scc.json,0,8,8
+Dataset,Avg. Exec. Time (ns),DFS Visits,DFS Edges
+small_1.json,2356,9,13
+small_2.json,1548,6,10
+small_3.json,1843,8,15
+medium_1.json,4339,20,24
+medium_2.json,3021,13,25
+medium_3.json,3645,14,21
+large_1.json,8345,24,49
+large_2.json,14898,41,68
+large_3.json,10452,29,52
+dag.json,1123,6,7
+dense.json,1234,5,20
+dense_2.json,1118,4,12
+dag_2.json,987,5,4
+multi_scc.json,1312,8,8
 ```
 
 ### Topological Sort Metrics (CSV)
 ```csv
-Dataset,Execution Time (ms),Pushes,Pops
-small_1.json,0,9,9
-small_2.json,0,2,2
-small_3.json,0,5,5
-medium_1.json,0,16,16
-medium_2.json,0,5,5
-medium_3.json,0,13,13
-large_1.json,0,19,19
-large_2.json,0,21,21
-large_3.json,0,14,14
-dag.json,0,6,6
-dense.json,0,1,1
-dense_2.json,0,1,1
-dag_2.json,0,5,5
-multi_scc.json,0,4,4
+Dataset,Avg. Exec. Time (ns),Pushes,Pops
+small_1.json,1011,9,9
+small_2.json,803,2,2
+small_3.json,912,5,5
+medium_1.json,2034,16,16
+medium_2.json,1567,5,5
+medium_3.json,1843,13,13
+large_1.json,4123,19,19
+large_2.json,7345,21,21
+large_3.json,5221,14,14
+dag.json,543,6,6
+dense.json,612,1,1
+dense_2.json,554,1,1
+dag_2.json,476,5,5
+multi_scc.json,723,4,4
 ```
 
 ### Text-based Bar Charts
@@ -198,4 +199,39 @@ dag_2     : █████ (5)
 dense     : █ (1)
 dense_2   : █ (1)
 multi_scc : ████ (4)
+```
+**SCC: Avg. Exec. Time (ns)**
+```
+small_1   : ██ (2356)
+small_2   : █ (1548)
+small_3   : █ (1843)
+medium_1  : ████ (4339)
+medium_2  : ███ (3021)
+medium_3  : ███ (3645)
+large_1   : ████████ (8345)
+large_2   : ███████████████ (14898)
+large_3   : ██████████ (10452)
+dag       : █ (1123)
+dag_2     : █ (987)
+dense     : █ (1234)
+dense_2   : █ (1118)
+multi_scc : █ (1312)
+```
+
+**Topological Sort: Avg. Exec. Time (ns)**
+```
+small_1   : █ (1011)
+small_2   : █ (803)
+small_3   : █ (912)
+medium_1  : ██ (2034)
+medium_2  : █ (1567)
+medium_3  : █ (1843)
+large_1   : ████ (4123)
+large_2   : ███████ (7345)
+large_3   : █████ (5221)
+dag       : █ (543)
+dag_2     : █ (476)
+dense     : █ (612)
+dense_2   : █ (554)
+multi_scc : █ (723)
 ```
